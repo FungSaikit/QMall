@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <top-bar></top-bar>
+    <!--<top-bar>
+      <div slot="title">产品标题</div>
+    </top-bar>-->
     <router-view/>
     <bottom-bar></bottom-bar>
   </div>
@@ -9,6 +11,7 @@
 <script>
   import topBar from './components/TopBar'
   import bottomBar from './components/BottomBar'
+
 
   export default {
     name: 'App',
@@ -20,6 +23,11 @@
 </script>
 
 <style>
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
   .placeholder {
     width: 100%;
