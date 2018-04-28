@@ -10,24 +10,28 @@
       </div>
     </div>
     <div class="footer">
-      <div class="ft fa">
-        <img src="static/BottomBar/01.png" alt="">
+      <div class="ft" :class="{fa: routePath === '/'}" @click="showIndex">
+        <img v-if="routePath !== '/'" src="static/BottomBar/0.png" alt="">
+        <img v-if="routePath === '/'" src="static/BottomBar/01.png" alt="">
         <div>主页</div>
       </div>
-      <div class="ft">
-        <img src="static/BottomBar/1.png" alt="">
+      <div class="ft" :class="{fa: routePath === '/classification_search'}" @click="showClassification">
+        <img v-if="routePath !== '/classification_search'" src="static/BottomBar/1.png" alt="">
+        <img v-if="routePath === '/classification_search'" src="static/BottomBar/11.png" alt="">
         <div>分类查找</div>
       </div>
       <div class="ft" @click="showSubMenu()">
         <img id="fm" src="static/BottomBar/2.png" alt="" :hidden="isSubMenuShow">
         <img id="fma" src="static/BottomBar/21.png" alt="" :hidden="!isSubMenuShow">
       </div>
-      <div class="ft">
-        <img src="static/BottomBar/3.png" alt="">
+      <div class="ft" :class="{fa: routePath === '/cart'}" @click="showCart">
+        <img v-if="routePath !== '/cart'" src="static/BottomBar/3.png" alt="">
+        <img v-if="routePath === '/cart'" src="static/BottomBar/31.png" alt="">
         <div>购物车</div>
       </div>
-      <div class="ft">
-        <img src="static/BottomBar/4.png" alt="">
+      <div class="ft" :class="{fa: routePath === '/personal_center'}" @click="showPersonalCenter">
+        <img v-if="routePath !== '/personal_center'" src="static/BottomBar/4.png" alt="">
+        <img v-if="routePath === '/personal_center'" src="static/BottomBar/41.png" alt="">
         <div>我的</div>
       </div>
     </div>
@@ -40,12 +44,29 @@
     name: "BottomBar",
     data() {
       return {
-        isSubMenuShow: false
+        isSubMenuShow: false,
+        routePath: this.$route.path
       }
     },
     methods: {
       showSubMenu() {
         this.isSubMenuShow = !this.isSubMenuShow;
+      },
+      showIndex() {
+        this.$router.push('/');
+        this.routePath = '/';
+      },
+      showClassification() {
+        this.$router.push('/classification_search');
+        this.routePath = '/classification_search';
+      },
+      showCart() {
+        this.$router.push('/cart');
+        this.routePath = '/cart';
+      },
+      showPersonalCenter() {
+        this.$router.push('/personal_center');
+        this.routePath = '/personal_center';
       }
     }
   }
