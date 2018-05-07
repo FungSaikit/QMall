@@ -15,10 +15,10 @@
         <img v-if="routePath === '/'" src="static/BottomBar/01.png" alt="">
         <div>主页</div>
       </div>
-      <div class="ft" :class="{fa: routePath === '/classification_search'}" @click="showClassification">
-        <img v-if="routePath !== '/classification_search'" src="static/BottomBar/1.png" alt="">
-        <img v-if="routePath === '/classification_search'" src="static/BottomBar/11.png" alt="">
-        <div>分类查找</div>
+      <div class="ft" :class="{fa: routePath === '/class_filter'}" @click="showClassification">
+        <img v-if="routePath !== '/class_filter'" src="static/BottomBar/1.png" alt="">
+        <img v-if="routePath === '/class_filter'" src="static/BottomBar/11.png" alt="">
+        <div>分类筛选</div>
       </div>
       <div class="ft" @click="showSubMenu()">
         <img id="fm" src="static/BottomBar/2.png" alt="" :hidden="isSubMenuShow">
@@ -57,8 +57,8 @@
         this.routePath = '/';
       },
       showClassification() {
-        this.$router.push('/classification_search');
-        this.routePath = '/classification_search';
+        this.$router.push('/class_filter');
+        this.routePath = '/class_filter';
       },
       showCart() {
         this.$router.push('/cart');
