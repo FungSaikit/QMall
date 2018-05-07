@@ -36,6 +36,9 @@
                 <div>后现代</div>
               </div>
             </div>
+            <div class="loading-block">
+              正在加载，请稍候...
+            </div>
           </div>
         </div>
       </div>
@@ -463,4 +466,18 @@
     overflow: hidden;
     margin: 0.5rem 0 0 2%;
   }
+
+  .loading-block {
+    margin-top: 0.5rem;
+    margin-left: 2%;
+    width: 96%;
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 0.8rem;
+    background-color: #fff;
+    color: #696969;
+    float: left;
+    text-align: center;
+  }
+
 </style>
