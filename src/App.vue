@@ -36,6 +36,11 @@
 
   body, html {
     background-color: #e4eaea;
+    height: 100%;
+  }
+
+  #app {
+    height: 100%;
   }
 
 </style>
