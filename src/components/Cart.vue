@@ -4,7 +4,7 @@
       <span slot="title">我的购物车</span>
     </title-bar>
     <div class="cart-list">
-      <div class="goods" id="0">
+      <div v-for="item in 10" class="goods" id="0">
         <div class="goods_top">
           <table>
             <tbody>
@@ -60,66 +60,19 @@
           </div>
         </div>
       </div>
-      <div class="goods" id="1">
-        <div class="goods_top">
-          <table>
-            <tbody>
-            <tr>
-              <td>
-                <div class="goods_cb">
-                  <input class="check_goods" type="checkbox" onchange="count()">
-                </div>
-              </td>
-              <td>
-                <div class="goods_pic">
-                  <img class="goods_pic_img" src="static/Index/test_light.jpg" alt="图片">
-                </div>
-              </td>
-              <td>
-                <table class="goods_dt">
-                  <tbody>
-                  <tr>
-                    <td class="goods_tt">简约日式LED现代实木吸顶灯点点滴滴红红火火恍恍惚惚哈哈哈哈哈</td>
-                  </tr>
-                  <tr>
-                    <td class="goods_md">型号：GY-X8852/4</td>
-                  </tr>
-                  <tr>
-                    <td class="goods_prz">￥<span class="price" id="price_0">15</span></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="goods_bottom">
-          <div class="number_div">
-            <table class="number_table">
-              <tbody>
-              <tr>
-                <td class="minus_td"><a href=" " onclick="minusOne(this)">&nbsp;-&nbsp;</a></td>
-                <td class="number_td"><input class="number" type="text" value="1" onchange="checkInput(this)">
-                </td>
-                <td class="plus_td"><a href="javascript:void(0)" onclick="plusOne(this)">&nbsp;+&nbsp;</a></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="color_div">
-            <select class="color_option" id="color_0">
-              <option value="0" price="10">10元 4头48瓦 LED吸顶</option>
-              <option value="1" price="12">12元 4头48瓦 LED吸顶</option>
-              <option value="2" price="15" selected="">15元 4头48瓦 LED吸顶</option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div style="height: 6.2rem;"></div>
+      <div style="height: 5.7rem;"></div>
     </div>
     <div class="sumbar">
-
+      <div class="sum-all">
+        <input type="checkbox">
+        <span>全选</span>
+      </div>
+      <div class="sum-price">
+        共:<span>￥4396.00</span>
+      </div>
+      <div class="sum-button">
+        去结算(10)
+      </div>
     </div>
   </div>
 </template>
@@ -137,12 +90,56 @@
 
 <style scoped>
 
+  .cart-list {
+    margin-top: 3.5rem;
+  }
+
+  .sumbar {
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    position: fixed;
+    background-color: #fff;
+    bottom: 3rem;
+    left: 0;
+    display: flex;
+    border-top: 1px solid lightgray;
+  }
+
+  .sum-all {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    margin-left: 0.5rem;
+  }
+
+  .sum-price {
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .sum-price span {
+    color: #c474d5;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .sum-button {
+    color: #fff;
+    padding: 0 0.5rem;
+    background: -webkit-linear-gradient(left, #e171bd, #a678f2);
+    background: -o-linear-gradient(right, #e171bd, #a678f2);
+    background: -moz-linear-gradient(right, #e171bd, #a678f2);
+    background: linear-gradient(to right, #e171bd, #a678f2);
+  }
+
   .goods {
     height: 8rem;
     width: 100%;
     background-color: #fff;
     margin: 0.5rem 0;
     vertical-align: top;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
   }
 
   .goods_top {
