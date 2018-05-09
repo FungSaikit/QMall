@@ -17,7 +17,7 @@
           <div v-for="item in goodsClasses" class="swiper-slide" :class="">
             <div class="goods" gid="0" @click="loadGoods()">
               <img src="static/Index/test_light.jpg" class="gp">
-              <div class="title">0雷士（NVC） 【满1699减550】雷士照明 客厅灯led吸顶灯 卧室灯 长方形灯具 智控轻奢三室两厅一阳台(套餐以赠品形式体现)</div>
+              <div class="title">厂家直销售质量优良工业级磷酸三钠</div>
               <div class="model">型号：E-NPX9014</div>
               <div class="price">
                 <span class="rmbl">￥</span>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="fav">收藏</div>
                 <div class="fav favourite-active" hidden>已收藏</div>
-                <div>后现代</div>
+                <div>磷酸盐</div>
               </div>
             </div>
             <div class="loading-block">
