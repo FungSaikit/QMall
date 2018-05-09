@@ -1,10 +1,11 @@
 <template>
   <div class="filter">
-    <filter-window></filter-window>
+    <filter-window :hidden="isFilterWindowHidden"></filter-window>
+    <add-to-cart :hidden="isAddToCartHidden"></add-to-cart>
     <div class="filter-bar">
       <div class="filter-bar-item" :class="{ 'fba-active': orderType === 0 }" @click="changeOrderType(0)">新品优先</div>
-      <div class="filter-bar-item" :class="{ 'fba-active': orderType !== 0 }" @click="showFilterMenu()">{{ orderType === 0 || orderType === 1 ? '销量降序' : orderType === 2 ? '价格降序' : '价格升序' }}</div>
-      <div class="filter-bar-item fbi-last">筛选</div>
+      <div class="filter-bar-item" :class="{ 'fba-active': orderType !== 0 }" @click="showFilterMenu()">{{ orderType === 0 || orderType === 1 ? '销量降序' : orderType === 2 ? '价格降序' : '价格升序' }} {{isFilterMenuHidden ? '▼' : '▲'}}</div>
+      <div class="filter-bar-item fbi-last" @click="showFilterWindow">筛选</div>
     </div>
     <div class="filter-menu" :hidden="isFilterMenuHidden">
       <div class="fml" :class="{ 'fba-active': orderType === 1 }" @click="changeOrderType(1)">销量从高到低</div>
@@ -14,13 +15,13 @@
     <div class="goods-list">
       <div v-for="item in 10" class="goods" gid="0" @click="loadGoods()">
         <img src="static/Index/test_light.jpg" class="gp">
-        <div class="title">0雷士（NVC） 【满1699减550】雷士照明 客厅灯led吸顶灯 卧室灯 长方形灯具 智控轻奢三室两厅一阳台(套餐以赠品形式体现)</div>
+        <div class="title">厂家直销售质量优良工业级磷酸三钠</div>
         <div class="model">型号：E-NPX9014</div>
         <div class="price">
           <span class="rmbl">￥</span>
           <span class="rmbn">1499</span>
           <div class="ac" onclick="addToCart()">
-            <img src="static/Index/cart.png" alt="">
+            <img src="static/Index/cart.png" alt="" @click="showAddToCart">
           </div>
         </div>
         <div class="favourite" onclick="addToFavourite(this)">
@@ -30,7 +31,7 @@
           </div>
           <div class="fav">收藏</div>
           <div class="fav favourite-active" hidden>已收藏</div>
-          <div>后现代</div>
+          <div>磷酸盐</div>
         </div>
       </div>
       <div class="loading-block">
@@ -44,15 +45,19 @@
 
 <script>
   import FilterWindow from '@/components/FilterWindow'
+  import AddToCart from '@/components/AddToCart'
 
   export default {
     name: "ClassFilter",
     components: {
-      FilterWindow
+      FilterWindow,
+      AddToCart
     },
     data() {
       return {
         isFilterMenuHidden: true,
+        isFilterWindowHidden: true,
+        isAddToCartHidden: true,
         orderType: 0,//0默认新品优先，1销量降序，2价格降序，3价格升序
       }
     },
@@ -63,6 +68,19 @@
       },
       showFilterMenu() {
         this.isFilterMenuHidden = !this.isFilterMenuHidden;
+      },
+      showFilterWindow() {
+        if (this.isFilterWindowHidden) {
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = 'fixed';
+        } else {
+          document.body.style.overflow = 'auto';
+          document.body.style.position = '';
+        }
+        this.isFilterWindowHidden = !this.isFilterWindowHidden;
+      },
+      showAddToCart() {
+        this.isAddToCartHidden = !this.isAddToCartHidden;
       }
     }
   }
